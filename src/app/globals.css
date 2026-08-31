@@ -47,3 +47,30 @@ a {
     color-scheme: dark;
   }
 }
+
+/* ==========================================
+   Clases personalizadas para Interped
+   ========================================== */
+.bg-custom-dark {
+  background-color: #0b1c3c !important;
+}
+
+.text-custom-green {
+  color: #00c853 !important;
+}
+
+.bg-custom-green {
+  background-color: #00c853 !important;
+}
+
+.btn-custom-green {
+  background-color: #00c853;
+  border-color: #00c853;
+  color: #fff;
+}
+
+.btn-custom-green:hover {
+  background-color: #00b047;
+  border-color: #00b047;
+  color: #fff;
+}
