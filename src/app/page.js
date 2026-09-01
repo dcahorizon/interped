@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Container, Row, Col, Navbar, Nav, Card, Button, Form } from 'react-bootstrap';
+import { Container, Row, Col, Navbar, Nav, Card, Button, Form, Tabs, Tab } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // Asegúrate de importar tus estilos globales si no se importan automáticamente en layout.js
 // import './globals.css'; 
@@ -198,135 +198,259 @@ export default function Home() {
       {/* Contenido Principal */}
       <main className="flex-grow-1 my-5">
         <Container id="planes">
-          <h2 className="text-center mb-5 fw-bold text-dark">Nuestros Planes de Internet</h2>
+          <div className="text-center mb-5">
+            <h2 className="fw-bold text-dark display-5">Nuestros Planes de Internet</h2>
+            <p className="text-muted">Elige la tecnología que mejor se adapte a tu hogar o negocio en Pedernales.</p>
+          </div>
 
-          {/* Tecnología Radioenlace */}
-          <h3 className="text-secondary mb-4 border-bottom pb-2">Tecnología Radioenlace</h3>
-          <Row className="mb-5">
-            <Col md={4} className="mb-4">
-              <Card className="h-100 shadow-sm border-0 text-center border-top border-primary border-4">
-                <Card.Body className="d-flex flex-column justify-content-between">
-                  <div>
-                    <Card.Title className="fw-bold text-primary">Radioenlace Básico</Card.Title>
-                    <Card.Subtitle className="mb-3 text-muted">Ideal para hogares</Card.Subtitle>
-                    <h2 className="display-5 fw-bold text-dark">$20</h2>
-                    <p className="fs-4 text-custom-green fw-semibold">30 Mbps</p>
-                  </div>
-                  <Button variant="outline-primary" href="#contacto">Contratar</Button>
-                </Card.Body>
-              </Card>
-            </Col>
+          {/* Pestañas (Tabs) con estados activos claros */}
+          <Tabs
+            defaultActiveKey="fibra"
+            id="tecnologias-tabs"
+            className="mb-5 justify-content-center border-0 custom-tabs"
+            fill
+          >
+            {/* PESTAÑA 1: FIBRA ÓPTICA */}
+            <Tab eventKey="fibra" title={<span className="fw-bold px-3 py-2 text-success">⚡ Fibra Óptica (Simétrica)</span>}>
+              <Row className="justify-content-center g-4 pt-3">
+                {/* Fibra Básica ($20 - Sin Zapping) */}
+                <Col lg={4} md={6}>
+                  <Card className="h-100 shadow-sm rounded-4 text-center border border-2 border-success bg-white">
+                    <Card.Body className="d-flex flex-column justify-content-between p-4">
+                      <div>
+                        <div className="text-uppercase small fw-bold text-muted mb-2">Para empezar</div>
+                        <Card.Title className="fw-bold text-dark fs-3">Fibra Básica</Card.Title>
+                        <p className="text-muted small mb-4">Ideal para streaming y teletrabajo básico</p>
 
-            <Col md={4} className="mb-4">
-              <Card className="h-100 shadow-sm border-0 text-center border-top border-primary border-4 bg-white shadow">
-                <Card.Body className="d-flex flex-column justify-content-between">
-                  <div>
-                    <Card.Title className="fw-bold text-primary">Radioenlace Estándar</Card.Title>
-                    <Card.Subtitle className="mb-3 text-muted">Más popular</Card.Subtitle>
-                    <h2 className="display-5 fw-bold text-dark">$25</h2>
-                    <p className="fs-4 text-custom-green fw-semibold">40 Mbps</p>
-                  </div>
-                  <Button variant="primary" href="#contacto">Contratar</Button>
-                </Card.Body>
-              </Card>
-            </Col>
+                        <div className="bg-light rounded-4 py-3 mb-4">
+                          <span className="fs-1 fw-bold text-dark">$20</span>
+                          <span className="text-muted small"> / mes</span>
+                          <div className="fs-3 fw-bold text-success mt-2">200 Mbps</div>
+                          <span className="badge bg-success bg-opacity-10 text-success mt-1">Simétrico</span>
+                        </div>
 
-            <Col md={4} className="mb-4">
-              <Card className="h-100 shadow-sm border-0 text-center border-top border-primary border-4">
-                <Card.Body className="d-flex flex-column justify-content-between">
-                  <div>
-                    <Card.Title className="fw-bold text-primary">Radioenlace Avanzado</Card.Title>
-                    <Card.Subtitle className="mb-3 text-muted">Máxima potencia</Card.Subtitle>
-                    <h2 className="display-5 fw-bold text-dark">$30</h2>
-                    <p className="fs-4 text-custom-green fw-semibold">50 Mbps</p>
-                  </div>
-                  <Button variant="outline-primary" href="#contacto">Contratar</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
+                        <ul className="list-unstyled text-start small text-muted mb-4 px-2">
+                          <li className="mb-2">✔ Conexión 100% fibra óptica</li>
+                          <li className="mb-2">✔ Sin límites de descarga</li>
+                          <li className="mb-2">✔ Soporte técnico prioritario</li>
+                        </ul>
+                      </div>
+                      <Button variant="outline-success" href="#contacto" className="w-100 fw-bold rounded-pill py-2">
+                        Contratar Fibra Básica
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
 
-          {/* Tecnología Fibra Óptica */}
-          <h3 className="text-secondary mb-4 border-bottom pb-2">Tecnología Fibra Óptica</h3>
-          <Row className="mb-5">
-            <Col md={4} className="mb-4">
-              <Card className="h-100 shadow-sm border-0 text-center border-top border-danger border-4">
-                <Card.Body className="d-flex flex-column justify-content-between">
-                  <div>
-                    <Card.Title className="fw-bold text-danger">Fibra Básica</Card.Title>
-                    <Card.Subtitle className="mb-3 text-muted">Simétrico</Card.Subtitle>
-                    <h2 className="display-5 fw-bold text-dark">$20</h2>
-                    <p className="fs-4 text-danger fw-semibold">200 Mbps</p>
-                  </div>
-                  <Button variant="outline-danger" href="#contacto">Contratar</Button>
-                </Card.Body>
-              </Card>
-            </Col>
+                {/* Fibra Estándar ($25 - TARJETA OSCURA / TEXTO BLANCO) */}
+                <Col lg={4} md={6}>
+                  <Card className="h-100 shadow-lg rounded-4 text-center border-2 border-success bg-dark text-white position-relative overflow-hidden" style={{ transform: 'scale(1.04)', zIndex: 2 }}>
+                    <div className="bg-success text-white py-1 small fw-bold text-uppercase tracking-wider">
+                      🔥 El más recomendado
+                    </div>
 
-            <Col md={4} className="mb-4">
-              <Card className="h-100 shadow-sm border-0 text-center border-top border-danger border-4">
-                <Card.Body className="d-flex flex-column justify-content-between">
-                  <div>
-                    <Card.Title className="fw-bold text-danger">Fibra Estándar</Card.Title>
-                    <Card.Subtitle className="mb-3 text-muted">Alta velocidad</Card.Subtitle>
-                    <h2 className="display-5 fw-bold text-dark">$25</h2>
-                    <p className="fs-4 text-danger fw-semibold">400 Mbps</p>
-                  </div>
-                  <Button variant="outline-danger" href="#contacto">Contratar</Button>
-                </Card.Body>
-              </Card>
-            </Col>
+                    {/* Insignia Zapping (Ubicación más abajo para no tocar la franja superior) */}
+                    <div className="position-absolute end-0 d-flex flex-column align-items-center p-1" style={{ top: '42px', right: '1rem', zIndex: 3, minWidth: '45px' }}>
+                      <div className="rounded-circle overflow-hidden mb-1" style={{ width: '30px', height: '30px' }}>
+                        <img src="/zapping.png" alt="Zapping" className="w-100 h-100 object-fit-cover" />
+                      </div>
+                      <span className="text-white fw-bold" style={{ fontSize: '9px', letterSpacing: '0.5px' }}>ZAPPING</span>
+                    </div>
 
-            <Col md={4} className="mb-4">
-              <Card className="h-100 shadow-sm border-0 text-center border-top border-danger border-4">
-                <Card.Body className="d-flex flex-column justify-content-between">
-                  <div>
-                    <Card.Title className="fw-bold text-danger">Fibra Pro</Card.Title>
-                    <Card.Subtitle className="mb-3 text-muted">Experiencia total</Card.Subtitle>
-                    <h2 className="display-5 fw-bold text-dark">$30</h2>
-                    <p className="fs-4 text-danger fw-semibold">600 Mbps</p>
-                  </div>
-                  <Button variant="danger" href="#contacto">Contratar</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+                    <Card.Body className="d-flex flex-column justify-content-between p-4 pt-3">
+                      <div>
+                        <div className="text-uppercase small fw-bold text-success mb-2">Hogar Conectado</div>
+                        <Card.Title className="fw-bold text-white fs-3">Fibra Estándar</Card.Title>
+                        <p className="text-white-50 small mb-4">Para múltiples dispositivos y juegos online</p>
 
-        {/* Sección de Contacto */}
-        <section id="contacto" className="py-5 bg-white shadow-sm my-5 border-top border-bottom">
-          <Container>
-            <h2 className="text-center mb-4 fw-bold text-dark">Contáctanos</h2>
-            <p className="text-center text-muted mb-5">
-              ¿Listo para dar el salto de velocidad? Escríbenos y nos pondremos en contacto contigo.
+                        <div className="bg-secondary bg-opacity-25 rounded-4 py-3 mb-4 border border-secondary">
+                          <span className="fs-1 fw-bold text-white">$25</span>
+                          <span className="text-white-50 small"> / mes</span>
+                          <div className="fs-3 fw-bold text-custom-green mt-2">400 Mbps</div>
+                          <span className="badge bg-success text-white mt-1">Simétrico</span>
+                        </div>
+
+                        <ul className="list-unstyled text-start small text-white-50 mb-4 px-2">
+                          <li className="mb-2"><span className="text-success">✔</span> Velocidad ultra rápida</li>
+                          <li className="mb-2"><span className="text-success">✔</span> Ideal para 4K y gaming</li>
+                          <li className="mb-2"><span className="text-success">✔</span> Router Wi-Fi de alta gama incluido</li>
+                          <li className="mb-2"><span className="text-success">✔</span> Incluye TV en vivo con Zapping</li>
+                        </ul>
+                      </div>
+                      <Button variant="success" href="#contacto" className="w-100 fw-bold rounded-pill py-2 shadow-sm bg-custom-green border-0">
+                        Contratar Fibra Estándar
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+
+                {/* Fibra Pro ($30 - TARJETA BLANCA / TEXTO OSCURO) */}
+                <Col lg={4} md={6}>
+                  <Card className="h-100 shadow-sm rounded-4 text-center border border-2 border-success bg-white position-relative">
+
+                    {/* Insignia Zapping (Ubicación más abajo) */}
+                    <div className="position-absolute end-0 d-flex flex-column align-items-center p-1" style={{ top: '20px', right: '1rem', zIndex: 3, minWidth: '45px' }}>
+                      <div className="rounded-circle overflow-hidden mb-1" style={{ width: '30px', height: '30px' }}>
+                        <img src="/zapping.png" alt="Zapping" className="w-100 h-100 object-fit-cover" />
+                      </div>
+                      <span className="text-dark fw-bold" style={{ fontSize: '9px', letterSpacing: '0.5px' }}>ZAPPING</span>
+                    </div>
+
+                    <Card.Body className="d-flex flex-column justify-content-between p-4">
+                      <div>
+                        <div className="text-uppercase small fw-bold text-muted mb-2">Máximo Rendimiento</div>
+                        <Card.Title className="fw-bold text-dark fs-3">Fibra Pro</Card.Title>
+                        <p className="text-muted small mb-4">Para creadores, empresas y hogares exigentes</p>
+
+                        <div className="bg-light rounded-4 py-3 mb-4">
+                          <span className="fs-1 fw-bold text-dark">$30</span>
+                          <span className="text-muted small"> / mes</span>
+                          <div className="fs-3 fw-bold text-success mt-2">600 Mbps</div>
+                          <span className="badge bg-success bg-opacity-10 text-success mt-1">Simétrico</span>
+                        </div>
+
+                        <ul className="list-unstyled text-start small text-muted mb-4 px-2">
+                          <li className="mb-2">✔ Ancho de banda extremo</li>
+                          <li className="mb-2">✔ Conexión ultra estable</li>
+                          <li className="mb-2">✔ Atención VIP preferencial</li>
+                          <li className="mb-2">✔ Incluye TV en vivo con Zapping</li>
+                        </ul>
+                      </div>
+                      <Button variant="outline-success" href="#contacto" className="w-100 fw-bold rounded-pill py-2">
+                        Contratar Fibra Pro
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </Tab>
+
+            {/* PESTAÑA 2: RADIOENLACE */}
+            <Tab eventKey="radioenlace" title={<span className="fw-bold px-3 py-2 text-primary">📡 Radioenlace (Zona Inalámbrica)</span>}>
+              <Row className="justify-content-center g-4 pt-3">
+                {/* Radio Básico ($20 - Sin Zapping) */}
+                <Col lg={4} md={6}>
+                  <Card className="h-100 shadow-sm rounded-4 text-center border border-2 border-primary bg-white">
+                    <Card.Body className="d-flex flex-column justify-content-between p-4">
+                      <div>
+                        <div className="text-uppercase small fw-bold text-muted mb-2">Acceso Inalámbrico</div>
+                        <Card.Title className="fw-bold text-dark fs-3">Radio Básico</Card.Title>
+                        <p className="text-muted small mb-4">Para zonas de difícil acceso</p>
+
+                        <div className="bg-light rounded-4 py-3 mb-4">
+                          <span className="fs-1 fw-bold text-dark">$20</span>
+                          <span className="text-muted small"> / mes</span>
+                          <div className="fs-3 fw-bold text-primary mt-2">30 Mbps</div>
+                        </div>
+
+                        <ul className="list-unstyled text-start small text-muted mb-4 px-2">
+                          <li className="mb-2">✔ Instalación rápida con antena</li>
+                          <li className="mb-2">✔ Cobertura garantizada</li>
+                          <li className="mb-2">✔ Soporte técnico incluido</li>
+                        </ul>
+                      </div>
+                      <Button variant="outline-primary" href="#contacto" className="w-100 fw-bold rounded-pill py-2">
+                        Elegir Radio Básico
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+
+                {/* Radio Estándar ($25 - TARJETA OSCURA / TEXTO BLANCO) */}
+                <Col lg={4} md={6}>
+                  <Card className="h-100 shadow-lg rounded-4 text-center border-2 border-primary bg-dark text-white position-relative overflow-hidden" style={{ transform: 'scale(1.04)', zIndex: 2 }}>
+                    <div className="text-white py-1 small fw-bold text-uppercase tracking-wider" style={{ backgroundColor: '#0066cc' }}>
+                      ⭐ Más Popular
+                    </div>
+
+                    {/* Insignia Zapping (Ubicación más abajo) */}
+                    <div className="position-absolute end-0 d-flex flex-column align-items-center p-1" style={{ top: '42px', right: '1rem', zIndex: 3, minWidth: '45px' }}>
+                      <div className="rounded-circle overflow-hidden mb-1" style={{ width: '30px', height: '30px' }}>
+                        <img src="/zapping.png" alt="Zapping" className="w-100 h-100 object-fit-cover" />
+                      </div>
+                      <span className="text-white fw-bold" style={{ fontSize: '9px', letterSpacing: '0.5px' }}>ZAPPING</span>
+                    </div>
+
+                    <Card.Body className="d-flex flex-column justify-content-between p-4 pt-3">
+                      <div>
+                        <div className="text-uppercase small fw-bold text-primary mb-2">Inalámbrico Plus</div>
+                        <Card.Title className="fw-bold text-white fs-3">Radio Estándar</Card.Title>
+                        <p className="text-white-50 small mb-4">El equilibrio perfecto para el hogar</p>
+
+                        <div className="bg-secondary bg-opacity-25 rounded-4 py-3 mb-4 border border-secondary">
+                          <span className="fs-1 fw-bold text-white">$25</span>
+                          <span className="text-white-50 small"> / mes</span>
+                          <div className="fs-3 fw-bold text-info mt-2">40 Mbps</div>
+                        </div>
+
+                        <ul className="list-unstyled text-start small text-white-50 mb-4 px-2">
+                          <li className="mb-2"><span className="text-primary">✔</span> Mejor estabilidad inalámbrica</li>
+                          <li className="mb-2"><span className="text-primary">✔</span> Ideal para redes sociales y clases</li>
+                          <li className="mb-2"><span className="text-primary">✔</span> Monitoreo constante de señal</li>
+                          <li className="mb-2"><span className="text-primary">✔</span> Incluye TV en vivo con Zapping</li>
+                        </ul>
+                      </div>
+                      <Button variant="primary" href="#contacto" className="w-100 fw-bold rounded-pill py-2 shadow-sm border-0" style={{ backgroundColor: '#0066cc' }}>
+                        Elegir Radio Estándar
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+
+                {/* Radio Avanzado ($30 - TARJETA BLANCA / TEXTO OSCURO) */}
+                <Col lg={4} md={6}>
+                  <Card className="h-100 shadow-sm rounded-4 text-center border border-2 border-primary bg-white position-relative">
+
+                    {/* Insignia Zapping (Ubicación más abajo) */}
+                    <div className="position-absolute end-0 d-flex flex-column align-items-center p-1" style={{ top: '20px', right: '1rem', zIndex: 3, minWidth: '45px' }}>
+                      <div className="rounded-circle overflow-hidden mb-1" style={{ width: '30px', height: '30px' }}>
+                        <img src="/zapping.png" alt="Zapping" className="w-100 h-100 object-fit-cover" />
+                      </div>
+                      <span className="text-dark fw-bold" style={{ fontSize: '9px', letterSpacing: '0.5px' }}>ZAPPING</span>
+                    </div>
+
+                    <Card.Body className="d-flex flex-column justify-content-between p-4">
+                      <div>
+                        <div className="text-uppercase small fw-bold text-muted mb-2">Potencia Inalámbrica</div>
+                        <Card.Title className="fw-bold text-dark fs-3">Radio Avanzado</Card.Title>
+                        <p className="text-muted small mb-4">Máxima velocidad por aire</p>
+
+                        <div className="bg-light rounded-4 py-3 mb-4">
+                          <span className="fs-1 fw-bold text-dark">$30</span>
+                          <span className="text-muted small"> / mes</span>
+                          <div className="fs-3 fw-bold text-primary mt-2">50 Mbps</div>
+                        </div>
+
+                        <ul className="list-unstyled text-start small text-muted mb-4 px-2">
+                          <li className="mb-2">✔ Alto rendimiento por aire</li>
+                          <li className="mb-2">✔ Mayor capacidad simultánea</li>
+                          <li className="mb-2">✔ Soporte técnico preferencial</li>
+                          <li className="mb-2">✔ Incluye TV en vivo con Zapping</li>
+                        </ul>
+                      </div>
+                      <Button variant="outline-primary" href="#contacto" className="w-100 fw-bold rounded-pill py-2">
+                        Elegir Radio Avanzado
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </Tab>
+          </Tabs>
+
+          {/* Zona de Proveedor de Streaming (Zapping en Gris) */}
+          <div className="mt-5 pt-4 border-top text-center">
+            <p className="text-uppercase small fw-bold text-muted mb-3 tracking-wider">
+              Planes desde $25 incluyen plataforma de televisión en vivo
             </p>
-            <Row className="justify-content-center">
-              <Col md={8}>
-                <Form className="p-4 rounded shadow-sm bg-light">
-                  <Form.Group className="mb-3" controlId="formNombre">
-                    <Form.Label className="fw-semibold">Nombre Completo</Form.Label>
-                    <Form.Control type="text" placeholder="Ingresa tu nombre" required />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formEmail">
-                    <Form.Label className="fw-semibold">Correo Electrónico</Form.Label>
-                    <Form.Control type="email" placeholder="nombre@ejemplo.com" required />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formTelefono">
-                    <Form.Label className="fw-semibold">Teléfono / WhatsApp</Form.Label>
-                    <Form.Control type="tel" placeholder="0999999999" required />
-                  </Form.Group>
-                  <Form.Group className="mb-4" controlId="formMensaje">
-                    <Form.Label className="fw-semibold">Mensaje o Plan de Interés</Form.Label>
-                    <Form.Control as="textarea" rows={3} placeholder="Cuéntanos qué plan te interesa..." required />
-                  </Form.Group>
-                  <Button variant="custom-green" type="submit" className="w-100 fw-bold py-2">
-                    Enviar Mensaje
-                  </Button>
-                </Form>
-              </Col>
-            </Row>
-          </Container>
-        </section>
+            <div className="d-flex justify-content-center align-items-center py-2">
+              <span className="text-secondary fw-bold fs-3 text-uppercase opacity-50" style={{ letterSpacing: '6px' }}>
+                Zapping
+              </span>
+            </div>
+            <p className="text-muted small mt-1">Disfruta de tus canales favoritos de TV en directo con la mejor calidad digital.</p>
+          </div>
+        </Container>
       </main>
 
       {/* Pie de Página Dividido en 3 Secciones */}
@@ -376,13 +500,13 @@ export default function Home() {
             <Col md={4}>
               <h5 className="fw-bold text-custom-green mb-3">Datos de Contacto</h5>
               <p className="text-white-50 small mb-2">
-                <strong>Dirección:</strong> Av. Principal e Intersección, Ecuador
+                <strong>Dirección:</strong> Pedernales, Ecuador
               </p>
               <p className="text-white-50 small mb-2">
-                <strong>Teléfono:</strong> +593 99 999 9999
+                <strong>Teléfono:</strong> +593987777125
               </p>
               <p className="text-white-50 small mb-2">
-                <strong>Correo:</strong> contacto@interped.ec
+                <strong>Correo:</strong> contacto@interped.com.ec
               </p>
               <p className="text-white-50 small mb-0">
                 <strong>Horario:</strong> Lunes a Sábado, 08:00 - 18:00
