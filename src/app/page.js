@@ -480,19 +480,19 @@ export default function Home() {
             <Col md={4}>
               <h5 className="fw-bold text-custom-green mb-3">Transparencia regulatoria (PDFs)</h5>
               <ul className="list-unstyled small">
-                <li><a href="/docs/archivo1.pdf" target="_blank" className="text-white-50 text-decoration-none">1. Título Habilitante</a></li>
-                <li><a href="/docs/archivo2.pdf" target="_blank" className="text-white-50 text-decoration-none">2. Tarifas Homologadas</a></li>
-                <li><a href="/docs/archivo3.pdf" target="_blank" className="text-white-50 text-decoration-none">3. Cobertura del Servicio</a></li>
-                <li><a href="/docs/archivo4.pdf" target="_blank" className="text-white-50 text-decoration-none">4. Calidad del Servicio</a></li>
-                <li><a href="/docs/archivo5.pdf" target="_blank" className="text-white-50 text-decoration-none">5. Derechos y Obligaciones</a></li>
-                <li><a href="/docs/archivo6.pdf" target="_blank" className="text-white-50 text-decoration-none">6. Contrato de Adhesión</a></li>
-                <li><a href="/docs/archivo7.pdf" target="_blank" className="text-white-50 text-decoration-none">7. Planes de Contingencia</a></li>
-                <li><a href="/docs/archivo8.pdf" target="_blank" className="text-white-50 text-decoration-none">8. Procedimiento de Reclamos</a></li>
-                <li><a href="/docs/archivo9.pdf" target="_blank" className="text-white-50 text-decoration-none">9. Indicadores de Calidad</a></li>
-                <li><a href="/docs/archivo10.pdf" target="_blank" className="text-white-50 text-decoration-none">10. Neutralidad de Red</a></li>
-                <li><a href="/docs/archivo11.pdf" target="_blank" className="text-white-50 text-decoration-none">11. Política de Privacidad</a></li>
-                <li><a href="/docs/archivo12.pdf" target="_blank" className="text-white-50 text-decoration-none">12. Registro de Abonados</a></li>
-                <li><a href="/docs/archivo13.pdf" target="_blank" className="text-white-50 text-decoration-none">13. Tarifas de Reinstalación</a></li>
+                <li><a href="/glosario-de-terminos.pdf" target="_blank" className="text-white-50 text-decoration-none">1. Glosario de Términos</a></li>
+                <li><a href="/consejos-seguridad.pdf" target="_blank" className="text-white-50 text-decoration-none">2. Consejos de Seguridad</a></li>
+                <li><a href="/ley-adulto-mayor.pdf" target="_blank" className="text-white-50 text-decoration-none">3. Ley Orgánica del adulto mayor</a></li>
+                <li><a href="/guia-control-parental.pdf" target="_blank" className="text-white-50 text-decoration-none">4. Guía de control parental</a></li>
+                <li><a href="/ley-proteccion-datos-personales.pdf" target="_blank" className="text-white-50 text-decoration-none">5. Ley de protección de datos personales</a></li>
+                <li><a href="/ley-telecomunicaciones.pdf" target="_blank" className="text-white-50 text-decoration-none">6. Ley de Telecomunicaciones</a></li>
+                <li><a href="/modelos-contratos-adhesion.pdf" target="_blank" className="text-white-50 text-decoration-none">7. Norma de modelo de contratos de adhesión</a></li>
+                <li><a href="/reglamento-general-ley-organica-telecomunicaciones.pdf" target="_blank" className="text-white-50 text-decoration-none">8. Reglamento General a la ley orgánica de telecomunicaciones</a></li>
+                <li><a href="/reglamento-norma-sva.pdf" target="_blank" className="text-white-50 text-decoration-none">9. Reglamento Norma SVA</a></li>
+                <li><a href="/reglamento-abonados.pdf" target="_blank" className="text-white-50 text-decoration-none">10. Reglamento de Abonados</a></li>
+                <li><a href="/norma-tecnica-incidentes-seguridad.pdf" target="_blank" className="text-white-50 text-decoration-none">11. Norma técnica de gestión de incidentes y seguridad en redes</a></li>
+                <li><a href="/ley-discapacidad.pdf" target="_blank" className="text-white-50 text-decoration-none">12. Ley de discapacidad</a></li>
+                <li><a href="/plan-contingencia-operaciones-telecomunicaciones.pdf" target="_blank" className="text-white-50 text-decoration-none">13. Planes de contingencia para la operación de telecomunicaciones</a></li>
               </ul>
             </Col>
 
