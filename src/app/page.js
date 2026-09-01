@@ -7,6 +7,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import './globals.css'; 
 
 export default function Home() {
+  // Array con los items para la marquesina
+  const marqueeItems = [
+    "🚀 ¡Promoción especial en Fibra Óptica simétrica!",
+    "💡 Contáctanos hoy y obtén instalación y de 1 a 3 meses gratis en planes seleccionados.",
+    "🛠️ Soporte técnico y atención al cliente 24/7 Asistente Virtual",
+    "⚡ La velocidad que necesitas al mejor precio con Interped."
+  ];
+
   return (
     <div className="d-flex flex-column min-vh-100 bg-light position-relative">
       {/* Barra de Navegación */}
@@ -22,26 +30,168 @@ export default function Home() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-            <Nav className="fw-semibold">
+            <Nav className="fw-semibold align-items-lg-center">
               <Nav.Link href="#planes" className="text-dark px-3">Planes</Nav.Link>
               <Nav.Link href="#contacto" className="text-dark px-3">Contacto</Nav.Link>
+
+              {/* Botón de Soporte (Verde) */}
+              <Button
+                href="https://wa.me/593987777125?text=Hola,%20necesito%20soporte%20técnico"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="success"
+                className="ms-lg-3 my-2 my-lg-0 bg-custom-green border-0 text-white fw-bold px-3 py-2 d-inline-flex align-items-center justify-content-center shadow-sm"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="me-2">
+                  <path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-1a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h1v-1a6 6 0 1 0-12 0v1h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2v-5z" fill="#00d2ff" />
+                  <rect x="2" y="11" width="3" height="6" rx="1.5" fill="#ffaa00" />
+                  <rect x="19" y="11" width="3" height="6" rx="1.5" fill="#ffaa00" />
+                </svg>
+                Soporte
+              </Button>
+
+              {/* Botón de Promoción (Azul) */}
+              <Button
+                href="https://wa.me/593988845855?text=Hola,%20quiero%20mis%203%20meses%20gratis"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                className="ms-lg-2 my-2 my-lg-0 border-0 text-white fw-bold px-3 py-2 d-inline-flex align-items-center justify-content-center shadow-sm"
+                style={{ backgroundColor: '#0066cc' }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="me-2">
+                  <rect x="3" y="10" width="18" height="11" rx="2" fill="#ff3b30" />
+                  <rect x="2" y="6" width="20" height="4" rx="1" fill="#c91c14" />
+                  <rect x="10.5" y="6" width="3" height="15" fill="#ffcc00" />
+                  <rect x="2" y="13" width="20" height="3" fill="#ffcc00" />
+                  <path d="M12 6C10 3 6 4 8 6C10 8 12 6 12 6Z" fill="#ffcc00" />
+                  <path d="M12 6C14 3 18 4 16 6C14 8 12 6 12 6Z" fill="#ffcc00" />
+                </svg>
+                Quiero mis 3 meses gratis
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
+      {/* Barra de Marquesina (Ticker) entre el Navbar y el Hero */}
+      <div
+        className="text-white overflow-hidden d-flex align-items-center border-bottom border-secondary position-relative shadow-sm"
+        style={{ height: '40px' }}
+      >
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .marquee-track {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+          }
+          .marquee-track:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+        <div className="marquee-track">
+          {[...marqueeItems, ...marqueeItems].map((text, index) => (
+            <span key={index} className="mx-4 fw-medium text-secondary d-flex align-items-center">
+              {text} <span className="text-custom-green ms-4">•</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* Sección Hero / Bienvenida */}
-      <header className="bg-custom-dark text-white text-center py-5 shadow-sm position-relative overflow-hidden">
-        <Container className="py-5">
-          <h1 className="display-4 fw-bold">
-            Conexión de <span className="text-custom-green">Alta Velocidad</span> con Interped
-          </h1>
-          <p className="lead mt-3 text-white-50">
-            La conexión más rápida al mundo. Llevamos internet de alta calidad hasta tu hogar o negocio.
-          </p>
-          <Button variant="outline-light" size="lg" href="#planes" className="mt-4 fw-bold px-4">
-            Ver Planes
-          </Button>
+      <header className="bg-custom-dark text-white py-5 shadow-sm position-relative overflow-hidden" style={{
+        backgroundImage: 'linear-gradient(rgba(10, 15, 29, 0.7), rgba(18, 34, 64, 0.8)), url("/fondo.webp")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
+        {/* Capa SVG con nodos estilo destello/flash en tonos blancos y sutiles */}
+        <svg className="position-absolute top-0 start-0 w-100 h-100 pointer-events-none" style={{ zIndex: 1, opacity: 0.65 }} viewBox="0 0 1200 600" preserveAspectRatio="none">
+          <defs>
+            <filter id="flashGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          {/* Líneas de conexión sutiles en blanco translúcido */}
+          <g stroke="rgba(255, 255, 255, 0.18)" strokeWidth="1" strokeDasharray="4 6" fill="none">
+            <path d="M 120 120 L 320 220 L 580 140 L 820 260 L 1020 180" />
+            <path d="M 180 420 L 380 340 L 620 420 L 880 320 L 1080 390" />
+            <path d="M 320 220 L 380 340" />
+            <path d="M 580 140 L 620 420" />
+            <path d="M 820 260 L 880 320" />
+          </g>
+
+          {/* Nodos tipo flash / destellos blancos y opacos sin colores */}
+          <g filter="url(#flashGlow)" fill="rgba(255, 255, 255, 0.6)">
+            <circle cx="120" cy="120" r="3">
+              <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="320" cy="220" r="4">
+              <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="580" cy="140" r="3.5">
+              <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="820" cy="260" r="4">
+              <animate attributeName="opacity" values="0.3;0.85;0.3" dur="2.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1020" cy="180" r="3">
+              <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3.5s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="180" cy="420" r="3.5">
+              <animate attributeName="opacity" values="0.25;0.9;0.25" dur="3.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="380" cy="340" r="4">
+              <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.6s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="620" cy="420" r="3">
+              <animate attributeName="opacity" values="0.2;0.75;0.2" dur="4.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="880" cy="320" r="4.5">
+              <animate attributeName="opacity" values="0.3;0.95;0.3" dur="2.5s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="1080" cy="390" r="3">
+              <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3.8s" repeatCount="indefinite" />
+            </circle>
+          </g>
+        </svg>
+
+        <Container className="py-2 position-relative" style={{ zIndex: 2 }}>
+          <Row className="align-items-center justify-content-center g-4">
+            <Col lg={8} className="text-center">
+              <div className="d-inline-block bg-success bg-opacity-25 text-custom-green px-3 py-2 rounded-pill mb-3 fw-bold border border-success shadow-sm">
+                🚀 ¡YA ESTAMOS EN PEDERNALES!
+              </div>
+              <h1 className="display-4 fw-bold lh-base">
+                Conexión de <span className="text-custom-green">Alta Velocidad</span> con Interped
+              </h1>
+              <p className="lead mt-3 text-white-50">
+                Fibra óptica rápida, estable y segura para tu hogar o negocio. Experimenta el flujo total de la ciudad conectada.
+              </p>
+              <div className="d-flex flex-wrap gap-3 justify-content-center mt-4">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  href="https://wa.me/593988845855?text=Hola,%20quiero%20mis%203%20meses%20gratis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="fw-bold px-4 border-0 shadow-sm"
+                  style={{ backgroundColor: '#0066cc' }}
+                >
+                  🎁 Quiero mis 3 meses gratis
+                </Button>
+                <Button variant="success" size="lg" href="#planes" className="fw-bold px-4 bg-custom-green border-0 shadow-sm">
+                  Ver Planes
+                </Button>
+              </div>
+            </Col>
+          </Row>
         </Container>
       </header>
 
@@ -194,7 +344,6 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="text-white text-decoration-none d-flex align-items-center"
                   >
-                    <span className="badge bg-danger me-2">Regulado</span>
                     <strong>ARCOTEL (Sitio Oficial)</strong>
                   </a>
                 </li>
@@ -253,7 +402,7 @@ export default function Home() {
 
       {/* Botón Flotante de WhatsApp */}
       <a
-        href="https://wa.me/593999999999?text=Hola,%20estoy%20interesado%20en%20los%20planes%20de%20Interped"
+        href="https://wa.me/593987777125?text=Hola,%20necesito%20ayuda"
         target="_blank"
         rel="noopener noreferrer"
         className="position-fixed bottom-0 end-0 m-4 btn btn-success rounded-circle shadow-lg d-flex align-items-center justify-content-center bg-custom-green border-0"
