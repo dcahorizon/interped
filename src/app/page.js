@@ -200,7 +200,12 @@ export default function Home() {
         <Container id="planes">
           <div className="text-center mb-5">
             <h2 className="fw-bold text-dark display-5">Nuestros Planes de Internet</h2>
-            <p className="text-muted">Elige la tecnología que mejor se adapte a tu hogar o negocio en Pedernales.</p>
+            <p className="text-muted mb-2">Elige la tecnología que mejor se adapte a tu hogar o negocio en Pedernales.</p>
+            <div className="mt-2">
+              <span className="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-2 rounded-pill border border-success border-opacity-25">
+                * Todos los planes ya incluyen IVA
+              </span>
+            </div>
           </div>
 
           {/* Pestañas (Tabs) con estados activos claros */}
@@ -266,7 +271,7 @@ export default function Home() {
                         <div className="bg-secondary bg-opacity-25 rounded-4 py-3 mb-4 border border-secondary">
                           <span className="fs-1 fw-bold text-white">$25</span>
                           <span className="text-white-50 small"> / mes</span>
-                          <div className="fs-3 fw-bold text-custom-green mt-2">400 Mbps</div>
+                          <div className="fs-3 fw-bold text-custom-green mt-2">500 Mbps</div>
                           <span className="badge bg-success text-white mt-1">Simétrico</span>
                         </div>
 
@@ -305,7 +310,7 @@ export default function Home() {
                         <div className="bg-light rounded-4 py-3 mb-4">
                           <span className="fs-1 fw-bold text-dark">$30</span>
                           <span className="text-muted small"> / mes</span>
-                          <div className="fs-3 fw-bold text-success mt-2">600 Mbps</div>
+                          <div className="fs-3 fw-bold text-success mt-2">800 Mbps</div>
                           <span className="badge bg-success bg-opacity-10 text-success mt-1">Simétrico</span>
                         </div>
 
@@ -328,42 +333,14 @@ export default function Home() {
             {/* PESTAÑA 2: RADIOENLACE */}
             <Tab eventKey="radioenlace" title={<span className="fw-bold px-3 py-2 text-primary">📡 Radioenlace (Zona Inalámbrica)</span>}>
               <Row className="justify-content-center g-4 pt-3">
-                {/* Radio Básico ($20 - Sin Zapping) */}
-                <Col lg={4} md={6}>
-                  <Card className="h-100 shadow-sm rounded-4 text-center border border-2 border-primary bg-white">
-                    <Card.Body className="d-flex flex-column justify-content-between p-4">
-                      <div>
-                        <div className="text-uppercase small fw-bold text-muted mb-2">Acceso Inalámbrico</div>
-                        <Card.Title className="fw-bold text-dark fs-3">Radio Básico</Card.Title>
-                        <p className="text-muted small mb-4">Para zonas de difícil acceso</p>
-
-                        <div className="bg-light rounded-4 py-3 mb-4">
-                          <span className="fs-1 fw-bold text-dark">$20</span>
-                          <span className="text-muted small"> / mes</span>
-                          <div className="fs-3 fw-bold text-primary mt-2">30 Mbps</div>
-                        </div>
-
-                        <ul className="list-unstyled text-start small text-muted mb-4 px-2">
-                          <li className="mb-2">✔ Instalación rápida con antena</li>
-                          <li className="mb-2">✔ Cobertura garantizada</li>
-                          <li className="mb-2">✔ Soporte técnico incluido</li>
-                        </ul>
-                      </div>
-                      <Button variant="outline-primary" href="#contacto" className="w-100 fw-bold rounded-pill py-2">
-                        Elegir Radio Básico
-                      </Button>
-                    </Card.Body>
-                  </Card>
-                </Col>
-
                 {/* Radio Estándar ($25 - TARJETA OSCURA / TEXTO BLANCO) */}
-                <Col lg={4} md={6}>
-                  <Card className="h-100 shadow-lg rounded-4 text-center border-2 border-primary bg-dark text-white position-relative overflow-hidden" style={{ transform: 'scale(1.04)', zIndex: 2 }}>
+                <Col lg={5} md={6}>
+                  <Card className="h-100 shadow-lg rounded-4 text-center border-2 border-primary bg-dark text-white position-relative overflow-hidden" style={{ transform: 'scale(1.02)', zIndex: 2 }}>
                     <div className="text-white py-1 small fw-bold text-uppercase tracking-wider" style={{ backgroundColor: '#0066cc' }}>
                       ⭐ Más Popular
                     </div>
 
-                    {/* Insignia Zapping (Ubicación más abajo) */}
+                    {/* Insignia Zapping */}
                     <div className="position-absolute end-0 d-flex flex-column align-items-center p-1" style={{ top: '42px', right: '1rem', zIndex: 3, minWidth: '45px' }}>
                       <div className="rounded-circle overflow-hidden mb-1" style={{ width: '30px', height: '30px' }}>
                         <img src="/zapping.png" alt="Zapping" className="w-100 h-100 object-fit-cover" />
@@ -380,7 +357,7 @@ export default function Home() {
                         <div className="bg-secondary bg-opacity-25 rounded-4 py-3 mb-4 border border-secondary">
                           <span className="fs-1 fw-bold text-white">$25</span>
                           <span className="text-white-50 small"> / mes</span>
-                          <div className="fs-3 fw-bold text-info mt-2">40 Mbps</div>
+                          <div className="fs-3 fw-bold text-info mt-2">50 Mbps</div>
                         </div>
 
                         <ul className="list-unstyled text-start small text-white-50 mb-4 px-2">
@@ -398,10 +375,10 @@ export default function Home() {
                 </Col>
 
                 {/* Radio Avanzado ($30 - TARJETA BLANCA / TEXTO OSCURO) */}
-                <Col lg={4} md={6}>
+                <Col lg={5} md={6}>
                   <Card className="h-100 shadow-sm rounded-4 text-center border border-2 border-primary bg-white position-relative">
 
-                    {/* Insignia Zapping (Ubicación más abajo) */}
+                    {/* Insignia Zapping */}
                     <div className="position-absolute end-0 d-flex flex-column align-items-center p-1" style={{ top: '20px', right: '1rem', zIndex: 3, minWidth: '45px' }}>
                       <div className="rounded-circle overflow-hidden mb-1" style={{ width: '30px', height: '30px' }}>
                         <img src="/zapping.png" alt="Zapping" className="w-100 h-100 object-fit-cover" />
@@ -418,7 +395,7 @@ export default function Home() {
                         <div className="bg-light rounded-4 py-3 mb-4">
                           <span className="fs-1 fw-bold text-dark">$30</span>
                           <span className="text-muted small"> / mes</span>
-                          <div className="fs-3 fw-bold text-primary mt-2">50 Mbps</div>
+                          <div className="fs-3 fw-bold text-primary mt-2">70 Mbps</div>
                         </div>
 
                         <ul className="list-unstyled text-start small text-muted mb-4 px-2">
